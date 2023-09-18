@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApi.Data.Contexto;
+using WebApiLeao.Repository.Interface;
+using WebApiLeao.Repository.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(strConnection);
 });
+
+builder.Services.AddScoped<ICursosRepository, CursosRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

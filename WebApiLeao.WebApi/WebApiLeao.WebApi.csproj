@@ -21,11 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\WebApi.Data\WebApi.Data.csproj" />
+    <ProjectReference Include="..\WebApiLeao.Repository\WebApiLeao.Repository.csproj" />
   </ItemGroup>
 
 </Project>

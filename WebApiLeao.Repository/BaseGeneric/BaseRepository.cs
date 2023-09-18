@@ -26,7 +26,7 @@ namespace WebApiLeao.Repository.BaseGeneric
 
         public async Task<T> GetById(int Id)
         {
-            return await _dataContext.Set<T>().FindAsync(x => x.Id == Id);
+            return await _dataContext.Set<T>().FindAsync(Id);
         }
 
         public async Task Insert(T entity)
