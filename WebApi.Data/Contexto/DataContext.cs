@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApi.Data.DataConfig;
+using WebApiLeao.Domain.Entities;
 
 namespace WebApi.Data.Contexto
 {
@@ -11,7 +13,8 @@ namespace WebApi.Data.Contexto
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder); 
+            builder.Entity<EntityCursos>(new CursosConfiguration().Configure);
+            base.OnModelCreating(builder);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WebApiLeao.Domain.Entities
 {
-    public class Cursos
+    public class EntityCursos
     {
         public int Id { get; set; }
         public DateTime DataRegistro { get; set; }
