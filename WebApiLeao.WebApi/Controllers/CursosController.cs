@@ -26,5 +26,13 @@ namespace WebApiLeao.WebApi.Controllers
             await _cursoRepository.Insert(entidadesCursos);
             return Ok("Curso registrado com sucesso!");
         }
+
+        [HttpGet("ObterTodosCursos")]
+        public async Task<IActionResult> ObterTodosCursos()
+        {
+
+            var result = await _cursoRepository.GetAll();
+            return Ok(result.ToList());
+        }
     }
 }
