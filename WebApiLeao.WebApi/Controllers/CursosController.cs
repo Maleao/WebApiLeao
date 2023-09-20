@@ -16,9 +16,9 @@ namespace WebApiLeao.WebApi.Controllers
         }
 
         [HttpPost("Register")]
-        public async  Task<IActionResult> Register(EntityCursos entidadesCursos)
+        public async Task<IActionResult> Register(EntityCursos entidadesCursos)
         {
-            if(entidadesCursos == null)
+            if (entidadesCursos == null)
             {
                 return BadRequest($"{entidadesCursos} não pode ser nulo");
             };
@@ -33,6 +33,33 @@ namespace WebApiLeao.WebApi.Controllers
 
             var result = await _cursoRepository.GetAll();
             return Ok(result.ToList());
+        }
+
+        [HttpGet("ObterCursoPorId/{Id}")]
+        public async Task<IActionResult> ObterCursoPorId(int Id)
+        {
+
+            var result = await _cursoRepository.GetById(Id);
+            if (result == null)
+            {
+                return NotFound($"{Id}, não encontrado");
+            }
+
+            return Ok(result);
+        }
+
+        [HttpDelete("Delete/{Id}")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+
+            var result = await _cursoRepository.GetById(Id);
+            if (result == null)
+            {
+                return NotFound($"{Id}, não encontrado");
+            }
+
+            await _cursoRepository.Delete(Id);
+            return Ok($"{Id}, excluído com sucesso");
         }
     }
 }
