@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApiLeao.Domain.Entities;
 using WebApiLeao.Repository.Interface;
 
@@ -60,6 +61,25 @@ namespace WebApiLeao.WebApi.Controllers
 
             await _cursoRepository.Delete(Id);
             return Ok($"{Id}, excluído com sucesso");
+        }
+
+        [HttpPut("  Update/{Id}")]
+        public async Task<IActionResult> Update(int Id, EntityCursos entityCursos)
+        {
+            if(Id != entityCursos.Id)
+            {
+                return BadRequest($"O Código {Id}, não encontrado");
+            }
+            try
+            {
+                await _cursoRepository.Update(Id, entityCursos);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return Ok($"O id: {Id}, foi atualizado com sucesso");
         }
     }
 }
