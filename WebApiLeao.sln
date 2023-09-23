@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLeao.WebApi", "WebApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiLeao.Repository", "WebApiLeao.Repository\WebApiLeao.Repository.csproj", "{4C77716B-1611-436C-B6B7-56C8434082FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLeao.WebApplication", "WebLeao.WebApplication\WebLeao.WebApplication.csproj", "{D362B587-C91D-4C15-8CD2-CAC66468456E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebLeao.WebApplication", "WebLeao.WebApplication\WebLeao.WebApplication.csproj", "{D362B587-C91D-4C15-8CD2-CAC66468456E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
