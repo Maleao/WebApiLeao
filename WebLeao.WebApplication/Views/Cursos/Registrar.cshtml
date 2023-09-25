@@ -1,0 +1,42 @@
+﻿@model WebLeao.WebApplication.Models.CursosViewModel
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<h1>Registrar</h1>
+
+<div class="Container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <label>Cadastro</label>
+             </div>
+             <div class="card-body">
+                 <form asp-action="Registrar" asp-controller="Cursos" method="post">
+
+                     <div class="mb-3">
+                         <label>Data Registro</label>
+                         <input type="date" class="form-control" asp-for="DataRegistro" />  
+                     </div>
+                    <div class="mb-3">
+                        <label>Título</label>
+                        <input type="text" class="form-control" asp-for="Titulo" />
+                    </div>
+                    <div class="mb-3">
+                         <label>Descrição</label>
+                        <textarea type="text" class="form-control" asp-for="Descricao"></textarea>
+                    </div>
+                     <div class="mb-3">
+                         <label>Valor</label>
+                         <input type="text" class="form-control" asp-for="Valor" />  
+                     </div>
+                     <div class="d-grid gap-2">
+                         <button class="btn btn-primary ">Cadastrar Curso</button>
+                     </div>
+
+
+                 </form>
+             </div>
+        </div>
+    </div>
+</div>
