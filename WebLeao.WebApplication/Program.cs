@@ -1,6 +1,15 @@
+using Refit;
+using WebLeao.WebApplication.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var clientHandler = new HttpClientHandler();
+builder.Services.AddRefitClient<ICursosRepository>()
+    .ConfigureHttpClient(c =>
+    {
+        c.BaseAddress = new Uri(builder.Configuration.GetValue<string>("Uri"));
+    }); 
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

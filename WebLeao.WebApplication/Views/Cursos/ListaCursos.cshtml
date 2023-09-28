@@ -6,8 +6,10 @@
 
 <div class="container">
     <br />
-
-    <div class="card">
+    <div class="mb-2">
+        @Html.ActionLink("Novo Curso", "Registrar", "Cursos", null, new{@class="btn btn-primary"})
+    </div>
+    <div class="card p-2">
         <div class="card-title">
             <label>Lista de Cursos</label>
         </div>
@@ -26,11 +28,13 @@
                 <tbody>
                     @foreach(var item in Model)
                     {
-                        <td>@item.Id</td>
-                        <td>@item.DataRegistro.ToShortDateString()</td>
-                        <td>@item.Titulo</td>
-                        <td>@item.Descricao</td>
-                        <td>@item.Valor</td>
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.DataRegistro.ToShortDateString()</td>
+                            <td>@item.Titulo</td>
+                            <td>@item.Descricao</td>
+                            <td>@item.Valor</td>
+                        </tr>
                     }
                 </tbody>
 
