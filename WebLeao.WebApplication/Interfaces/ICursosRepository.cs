@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Refit;
+﻿using Refit;
 using WebLeao.WebApplication.Models;
 
 namespace WebLeao.WebApplication.Interfaces
@@ -12,6 +11,11 @@ namespace WebLeao.WebApplication.Interfaces
         [Get("/api/v1/Cursos/ObterTodosCursos")]
         Task<IEnumerable<CursosViewModel>> ObterCursos();
 
+        [Delete("/api/v1/Cursos/Delete/{Id}")]
+        Task Delete(int Id);
+
+        [Put("/api/v1/Cursos/Update/{Id}")]
+        Task Update(int Id);
 
     }
 }

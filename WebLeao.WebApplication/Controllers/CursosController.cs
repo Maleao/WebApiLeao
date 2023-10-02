@@ -85,5 +85,15 @@ namespace WebLeao.WebApplication.Controllers
         //        return new List<CursosViewModel>();
         //    }
         //}
+
+        public async Task ExcluirCurso(int Id)
+        {
+            if (Id > 0)
+            {
+                await _cursosRepository.Delete(Id);
+
+            }
+        }
     }
+
 }

@@ -22,6 +22,8 @@
                         <th>Título</th>
                         <th>Descrição</th>
                         <th>Valor</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -34,6 +36,12 @@
                             <td>@item.Titulo</td>
                             <td>@item.Descricao</td>
                             <td>@item.Valor</td>
+                            <td>
+                                <button type="button" class="btn btn-danger btnDelete" data-itemid="@item.Id">Excluir</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning btnUpdate" data-itemid="@item.Id">Atualizar</button>
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -45,3 +53,22 @@
 
 </div>
 
+@section scripts { 
+    <script>
+        $('.btnDelete').click(function () {
+            var Id = $(this).attr('data-itemid')
+            var Url = "/Cursos/ExcluirCurso?Id=" + Id;
+
+            if(confirm("Realmente deseja excluir esse curso?")) {
+                $.ajax({ 
+                    type:'DELETE',
+                    url:Url,
+                    success: function(result){ 
+                        alert("Curso Excluído com sucesso");
+                        window.location.href = "/Cursos/ListaCursos";
+                    }
+                });
+             }
+        });
+    </script>
+}

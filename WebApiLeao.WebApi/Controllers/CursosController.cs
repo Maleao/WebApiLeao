@@ -63,7 +63,7 @@ namespace WebApiLeao.WebApi.Controllers
             return Ok($"{Id}, excluído com sucesso");
         }
 
-        [HttpPut("  Update/{Id}")]
+        [HttpPut("Update/{Id}")]
         public async Task<IActionResult> Update(int Id, EntityCursos entityCursos)
         {
             if(Id != entityCursos.Id)
