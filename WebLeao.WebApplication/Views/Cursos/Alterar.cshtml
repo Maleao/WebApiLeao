@@ -1,0 +1,45 @@
+﻿@model WebLeao.WebApplication.Models.CursosViewModel;
+@{
+    ViewData["Title"] = "Alterar";
+}
+
+
+ <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Alterar dados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form asp-action="Alterar" asp-controller="Cursos" method="post">
+          <input type="hidden" asp-for="Id" />
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Data:</label>
+            <input type="date" class="form-control" asp-for="DataRegistro">
+          </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Título:</label>
+                <input type="text" class="form-control" asp-for="Titulo">
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Descrição:</label>
+                <textarea class="form-control" asp-for="Descricao"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Valor:</label>
+                <input type="text" class="form-control" asp-for="Valor">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <button type="submit" class="btn btn-primary">Alterar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+
+        </form>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+

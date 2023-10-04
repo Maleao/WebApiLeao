@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebLeao.WebApplication.Models;
-using WebLeao.WebApplication.EnumVerbs;
-using Newtonsoft.Json;
 using WebLeao.WebApplication.Interfaces;
+using WebLeao.WebApplication.Models;
 
 namespace WebLeao.WebApplication.Controllers
 {
@@ -61,6 +59,41 @@ namespace WebLeao.WebApplication.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Alterar(int Id) 
+        {
+            if(Id > 0) 
+            { 
+                var resultado = await _cursosRepository.ObterCursosPorId(Id);
+                return View(resultado);
+            }
+            else
+            {
+                return NotFound($"{Id} Não Encontrado");
+            }
+            
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Alterar(int Id, CursosViewModel mod)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (Id > 0)
+                {
+                    await _cursosRepository.Update(Id, mod);
+                    TempData["Msg"] = "Curso Alterado com Sucesso";
+                    return RedirectToAction(nameof(ListaCursos));
+                }
+                else
+                {
+                    return NotFound($"{Id} Não Encontrado");
+                }
+            }
+
+            return View(mod);
+        }
+
         public async Task<IActionResult> ListaCursos()
         {
             //Sem rift
@@ -94,6 +127,7 @@ namespace WebLeao.WebApplication.Controllers
 
             }
         }
+
     }
 
 }

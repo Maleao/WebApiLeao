@@ -14,8 +14,11 @@ namespace WebLeao.WebApplication.Interfaces
         [Delete("/api/v1/Cursos/Delete/{Id}")]
         Task Delete(int Id);
 
+        [Get("/api/v1/Cursos/ObterCursoPorId/{Id}")]
+        Task<CursosViewModel> ObterCursosPorId(int Id);
+
         [Put("/api/v1/Cursos/Update/{Id}")]
-        Task Update(int Id);
+        Task Update(int Id, CursosViewModel mod);
 
     }
 }

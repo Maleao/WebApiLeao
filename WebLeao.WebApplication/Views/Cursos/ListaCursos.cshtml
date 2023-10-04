@@ -24,6 +24,7 @@
                         <th>Valor</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -42,6 +43,9 @@
                             <td>
                                 <button type="button" class="btn btn-warning btnUpdate" data-itemid="@item.Id">Atualizar</button>
                             </td>
+                            <td>
+                                <button type="button" class="btn btn-success btnDetalhes" data-itemid="@item.Id">Detalhes</button>
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -52,6 +56,7 @@
 
 
 </div>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"></div>
 
 @section scripts { 
     <script>
@@ -70,5 +75,16 @@
                 });
              }
         });
+
+        $('.btnUpdate').click(function () {
+            var Id = $(this).attr('data-itemid');
+            var Url = "/Cursos/Alterar?Id=" + Id;
+
+            $('#modal').load(Url, function() { 
+                $('#modal').modal('show');
+            });
+
+        });
+
     </script>
 }
