@@ -1,0 +1,42 @@
+﻿@model WebLeao.WebApplication.Models.CursosViewModel;
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Detalhes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Data:</label>
+                <label>@Model.DataRegistro</label>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Título:</label>
+                <label>@Model.Titulo</label>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Descrição:</label>
+                <label>@Model.Descricao</label>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Valor:</label>
+                <label>@Model.Valor</label>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <button type="button" class="close btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>

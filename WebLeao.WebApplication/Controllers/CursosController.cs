@@ -73,6 +73,19 @@ namespace WebLeao.WebApplication.Controllers
             
         }
 
+        public async Task<IActionResult> Detalhes(int Id) 
+        {
+            if (Id > 0)
+            {
+                var resultado = await _cursosRepository.ObterCursosPorId(Id);
+                return View(resultado);
+            }
+            else
+            {
+                return NotFound($"{Id} Não Encontrado");
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Alterar(int Id, CursosViewModel mod)
         {

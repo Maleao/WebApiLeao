@@ -83,7 +83,19 @@
             $('#modal').load(Url, function() { 
                 $('#modal').modal('show');
             });
+        });
 
+        $('.btnDetalhes').click(function () {
+            var Id = $(this).attr('data-itemid');
+            var Url = "/Cursos/Detalhes?Id=" + Id;
+
+            $('#modal').load(Url, function () {
+                $('#modal').modal('show');
+            });
+        });
+
+        $('#modal').on('click', '.close', function () {
+            $('#modal').modal('hide');
         });
 
     </script>
